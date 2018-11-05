@@ -21,6 +21,7 @@
       <script type="text/javascript" src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+
 </head>
 
 <body>
@@ -45,12 +46,7 @@
                     <li><a href="/v.html">Bsc Vuelos</a></li>
                     <li><a href="/m.html">Bsc Multimedia</a></li>
                 </ul>
-                <form class="navbar-form navbar-left">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search">
-                    </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
-                </form>
+
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
@@ -67,31 +63,11 @@
     </nav>
 
     <div class="container tc">
-        <h1>Proto Noticias</h1>
+        <h1>Proto Companias</h1>
         <div class="row">
             <div class="col-md-4">
-                <div class="list-group">
-                    <a href="#" class="list-group-item active">
-                        <h4 class="list-group-item-heading">ProtoAirport la nueva App del aeropuerto ya esta aca</h4>
-                        <p class="list-group-item-text">La flamante app utiliza una interfaz responsive que pe...</p>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <h4 class="list-group-item-heading">La turbulenta semana en la que Jhon Doe cancelo el aeropuerto de Comodoro</h4>
-                        <p class="list-group-item-text">La incertidumbre sobre el futuro de las inversiones en el pais domina las...</p>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <h4 class="list-group-item-heading">La cancelacion del aeropuerto compromete el presupuesto para el nuevo proyecto</h4>
-                        <p class="list-group-item-text">ProtoAirport podría verse perjudicado por la...</p>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <h4 class="list-group-item-heading">Los resultados de Aena suben un 5,5%, que gana 1.018,5 millones hasta septiembre</h4>
-                        <p class="list-group-item-text">El gesto aeroportuario nombra a Jhon Doe como nuevo...</p>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <h4 class="list-group-item-heading">Posible restructuracion de la app del aeropuerto motiva inversores</h4>
-                        <p class="list-group-item-text">La constante demanda de aplicaciones responsive hacen de...</p>
-                    </a>
-                </div>
+                <input class="form-control autocomplete" placeholder="Compania..." />
+                <button type="submit" class="btn btn-default">Detalle</button>
             </div>
 
             <div class="col-md-8">
@@ -114,12 +90,29 @@
     <script type="text/javascript " src="js/bootstrap.min.js "></script>
     <script type="text/javascript " src="js/underscore-min.js "></script>
 
+
+
 </body>
 
 </html>
 
 <script type="text/javascript ">
-    function returnAlert(result) {
-        alert(result);
-    };
+    const availableCompanies = [
+        "Emirates", "United Airlines", "Singapore Airlines",
+        "American Airlines", "Avianca Virgin Atlantic", "LAN Airlines",
+        "Alaska Central Express", "Alpine Air Express",
+        "Aerolineas Argentinas", "Lan Chile"
+    ];
+    //Sort by company name
+    let companyName = _.sortBy(availableCompanies, function(name) {
+        return name
+    });
+    //Filling autocomplete
+    $(".autocomplete").autocomplete({
+        source: companyName
+    });
+
+    function onSelectAirport(e) {
+        alert(e);
+    }
 </script>
