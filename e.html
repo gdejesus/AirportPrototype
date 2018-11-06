@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>ProtoAirport</title>
+    <link rel="stylesheet" href="style/bootstrap.min.css" />
+    <link rel="stylesheet" href="style/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="style/jquery-ui.min.css" />
+
+    <link rel="stylesheet" href="style/custom.css" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script type="text/javascript" src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script type="text/javascript" src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    <div id="navContainer"></div>
+    <div class="container tl">
+        <h1 class="tc">Enunciado</h1>
+
+        <div class="col-md-12">
+            <div class="wrapper">
+
+                <p>
+                    Grupo 3: Guillermo DE JESUS – Luis LUNA La gerencia del aeropuerto de la ciudad de Córdoba, desea implementar una aplicación web, que permita a sus usuarios: </p>
+                <ul>
+                    <li>Buscar información sobre los vuelos y las compañías aéreas que operan en él. </li>
+                    <li> Ver los servicios ofrecidos por el aeropuerto. </li>
+                    <li>Ver las novedades relacionadas con el aeropuerto. </li>
+                    <li>Acceder a una galería de fotos y videos de los aviones que operan en el aeropuerto. </li>
+                </ul>
+
+                <p>La búsqueda de información de los vuelos debe hacerse por cualquiera de los siguientes criterios: número de vuelo, operación (arribo o partida) o ciudad origen/destino. </p>
+                <p>El resultado de la búsqueda debe brindar la siguiente información: número de vuelo,compañía aérea, procedencia/destino, hora, estado. </p>
+                <p>Desde el resultado de la búsqueda, el usuario podrá obtener mayor información sobre un vuelo determinado (número de vuelo, compañía aérea, avión que realiza el vuelo, matrícula del avión, procedencia/destino, hora, estado, puerta de embarque/desembarque)
+                    o sobre una compañía (nombre, país, telefono de contacto, dirección web, flota de aviones).</p>
+                <p>Cuando el usuario ingrese a ver los datos de una compañía, se debe dar la posibilidad de visualizar:</p>
+                <ul>
+                    <li>Los vuelos del día de esa compañía que operan en el aeropuerto </li>
+                    <li>Los aviones que conforman la flota de la compañía Desde la página de inicio, los usuarios deben poder visualizar los últimos y próximos arribos y partidas, esto es, los que sucedieron hasta una hora antes y sucederán hasta una hora
+                        después de la hora actual. </li>
+                </ul>
+                <p>En la sección de servicios del aeropuerto se debe mostrar la siguiente información: nombre del aeropuerto, dirección postal, teléfono de contacto, dirección de correo electrónico, ubicación de los sectores (mostradores de check in, sector
+                    de arribos, sector de partidas, comercios, enfermería, cajeros automáticos) y un listado de las compañías aéreas que operan en él.</p>
+                <p>En la sección de novedades, se debe mostrar la siguiente información: título de la noticia, fecha de publicación y texto completo de la noticia. Las novedades deben mostrarse en orden cronológico, comenzando por la más reciente. Se deben
+                    mostrar solamente las 5 más recientes. </p>
+
+                <p>En la sección de la galería de fotos y videos, la administración del aeropuerto publica ese material multimedial. </p>
+                <p>La administración del aeropuerto desea que los usuarios puedan realizar una búsqueda del material de acuerdo a los siguientes criterios: fecha, empresa y/o avión. Luego, a partir del resultado de la búsqueda, el usuario puede acceder a
+                    ver el recurso multimedial, el que se debe mostrar junto a la siguiente información: fecha, hora, avión, matrícula, empresa y una breve descripción.</p>
+                <p>Para el problema anterior usted deberá realizar la recopilación de requerimientos, el diseño conceptual y navegacional, según la metodología OOHDM, considerando que:</p>
+                <ul>
+                    <li>Para la recopilación de requerimientos, debe definir escenarios, casos de uso y UIDs de al menos 6 situaciones de interacción de los usuarios con el sitio.</li>
+                    <li>El producto final del diseño conceptual debe ser un diagrama de clases. </li>
+                    <li>En el diseño navegacional, se deben definir tarjetas de nodos, tarjetas de links, tarjetas de estructuras de acceso y tarjetas de contextos navegacionales. </li>
+                </ul>
+                <p>Proponer en base a estos elementos, un esquema navegacional. Luego, realizar el diseño de interfaz abstracta completo, para todas las interfaces posibles. Considerar lo siguiente:
+                    <ul>
+                        <li>Buscador de vuelos. El usuario puede producir la búsqueda por cualquiera de los siguientes eventos: Cuando ingrese el número de vuelo, puede pulsar la tecla “enter” Cuando ingrese los 3 criterios, puede pulsar un botón que inicie
+                            la búsqueda </li>
+                        <li>Buscador de compañías que operan en el aeropuerto. El usuario debe poder seleccionar la compañía aérea desde un listado. Cuando seleccione el elemento, se debe ejecutar la búsqueda.</li>
+                        <li>Página que muestra la información general de un vuelo: cuando se cargue la página, deberán aparecer visibles todos los atributos excepto el estado y la puerta de embarque/desembarque. Por esto, se deberá incluir en la página un
+                            recurso que permita al usuario visualizar estos 2 últimos atributos cuando lo desee. </li>
+                        <li>Galería de fotos y videos: al mostrar el resultado de la búsqueda, cuando el usuario haga click con el mouse sobre algún registro del resultado, se debe mostrar el recurso junto a su información en una nueva ventana. </li>
+                    </ul>
+                    <p>Para la implementación, presentar la estructura del sitio y modelos de las páginas web necesarias.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- /.container -->
+
+    <script type="text/javascript " src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript " src="js/jquery-ui.min.js "></script>
+    <script type="text/javascript " src="js/bootstrap.min.js "></script>
+    <script type="text/javascript " src="js/underscore-min.js "></script>
+
+</body>
+
+</html>
+<script type="text/javascript ">
+    let url = "./includes/nav.html"
+    $.ajax({
+        crossOrigin: true,
+        url: url,
+        success: function(data) {
+            $("#navContainer").html(data);
+        }
+    });
+</script>
