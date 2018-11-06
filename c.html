@@ -66,18 +66,43 @@
         <h1>Proto Companias</h1>
         <div class="row">
             <div class="col-md-4">
-                <input class="form-control autocomplete" placeholder="Compania..." />
+                <input id="companies" class="form-control autocomplete" placeholder="Compania..." />
                 <button type="submit" class="btn btn-default">Detalle</button>
             </div>
 
             <div class="col-md-8">
                 <div class="wrapper">
-                    <p class="text-justify">La flamante app utiliza una interfaz responsive que permite a los pasajeros interactuar con las distintas posibilidades del aeropuerto.</p>
-                    <p> Mientras que actualizará automáticamente los horarios de partida, cambios de las puertas de partida y hasta brindará buscadores de companias, vuelos y multimedia para generar un espacio de confort.</p>
-                    <p>La tecnología ha sido denominada como "ProtoAirport" y sabrá datos de el vuelo a tomar y hacia dónde se volará. En caso de indeseables, pero cada vez más inevitables demoras, la app mostrará los distintos sectores del aeropuerto para
-                        aprovechar el tiempo muerto, al sugerir los cafés o librerías más cercanos, o hotspots de Wi-Fi y lavabos.</p>
-                    <p>DJ/L, la compañía tecnológica detrás de su desarrollo asegura que la aplicación ofrece la experiencia más tecnológicamente avanzada dentro de un aeropuerto, mientras que representantes del aeropuerto aseguran que gracias a la innovación
-                        que ofrece ProtoAirport pretenden incrementar la satisfacción de los viajerons de forma drástica</p>
+                    <div id="companyInfo">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <th>Id</th>
+                                    <td id="idCompany"></td>
+                                </tr>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <td id="nameCompany"></td>
+
+                                </tr>
+                                <tr>
+                                    <th>Pais</th>
+                                    <td id="countryCompany"></td>
+                                </tr>
+                                <tr>
+                                    <th>Telefono</th>
+                                    <td id="phoneCompany"></td>
+                                </tr>
+                                <tr>
+                                    <th>Web</th>
+                                    <td id="webCompany"></td>
+                                </tr>
+                                <tr>
+                                    <th>Aviones</th>
+                                    <td id="plainCompany"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
@@ -90,29 +115,118 @@
     <script type="text/javascript " src="js/bootstrap.min.js "></script>
     <script type="text/javascript " src="js/underscore-min.js "></script>
 
-
-
 </body>
 
 </html>
 
 <script type="text/javascript ">
-    const availableCompanies = [
-        "Emirates", "United Airlines", "Singapore Airlines",
-        "American Airlines", "Avianca Virgin Atlantic", "LAN Airlines",
-        "Alaska Central Express", "Alpine Air Express",
-        "Aerolineas Argentinas", "Lan Chile"
-    ];
+    //Companies list
+    let aviones = [{
+        idAvion: 1,
+        patente: 12341,
+        fabricante: "emi",
+        capacidad: 100,
+        modelo: "Avion1",
+        fechaFabricacion: "25 de marzo de 1985",
+        fechaEntradaServicio: "26 de marzo de 1985"
+    }, {
+        idAvion: 2,
+        patente: 12341,
+        fabricante: "emi",
+        capacidad: 100,
+        modelo: "Avion2",
+        fechaFabricacion: "25 de marzo de 1985",
+        fechaEntradaServicio: "26 de marzo de 1985"
+    }];
+    const availableCompanies = [{
+        id: 1,
+        name: "Emirates",
+        pais: "Emiratos Árabes Unidos",
+        telefono: 1234123,
+        web: "www.emirates.com",
+        aviones: aviones,
+    }, {
+        id: 2,
+        name: "United Airlines",
+        pais: "Canada",
+        telefono: 124142,
+        web: "www.unitedairlines.com",
+        aviones: aviones,
+    }, {
+        id: 3,
+        name: "Singapore Airlines",
+        pais: "Singapur",
+        telefono: 5123123,
+        web: "www.spairlines.com",
+        aviones: aviones,
+    }, {
+        id: 4,
+        name: "American Airlines",
+        pais: "EEUU",
+        telefono: 134123,
+        web: "www.americanairlines.com",
+        aviones: aviones,
+    }, {
+        id: 5,
+        name: "Avianca Virgin Atlantic",
+        pais: "EEUU",
+        telefono: 65123412,
+        web: "-",
+        aviones: aviones,
+    }, {
+        id: 6,
+        name: "LAN Airlines",
+        pais: "Chile",
+        telefono: 5234234,
+        web: "www.lan.com",
+        aviones: aviones,
+    }, {
+        id: 7,
+        name: "Alaska Central Express",
+        pais: "Alaska",
+        telefono: 5123412,
+        web: "-",
+        aviones: aviones,
+    }, {
+        id: 8,
+        name: "Alpine Air Express",
+        pais: "EEUU",
+        telefono: 63452342,
+        web: "-",
+        aviones: aviones,
+    }, {
+        id: 9,
+        name: "Aerolineas Argentinas",
+        pais: "Argentina",
+        telefono: 1235123125,
+        web: "www.aerolineas.com.ar",
+        aviones: aviones,
+    }];
     //Sort by company name
-    let companyName = _.sortBy(availableCompanies, function(name) {
-        return name
-    });
+    let companyName = _.sortBy(availableCompanies, name);
+    companyName = _.pluck(companyName, 'name');
     //Filling autocomplete
     $(".autocomplete").autocomplete({
         source: companyName
     });
+    $(":button ").click(function(e) {
+        $("#plainCompany").text("");
+        let companieSelected = $("#companies").val();
+        let element = _.findWhere(availableCompanies, {
+            name: companieSelected
+        });
+        $("#idCompany").text(element.id);
+        $("#nameCompany").text(element.name);
+        $("#countryCompany").text(element.pais);
+        $("#phoneCompany").text(element.telefono);
+        $("#webCompany").text(element.web);
+        let plainData = "";
+        _.each(element.aviones, function(avion) {
+            plainData += "Avion: " + avion.idAvion;
+            plainData += " Modelo: " + avion.modelo;
+            plainData += " || ";
+        });
+        $("#plainCompany").append(plainData.substring(0, plainData.length - 3));
 
-    function onSelectAirport(e) {
-        alert(e);
-    }
+    });
 </script>
