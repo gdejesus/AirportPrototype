@@ -31,28 +31,13 @@
         <h1>Proto Bsc Vuelos</h1>
         <div class="row">
             <div class="col-md-4">
-                <div class="list-group">
-                    <a href="#" class="list-group-item active">
-                        <h4 class="list-group-item-heading">ProtoAirport la nueva App del aeropuerto ya esta aca</h4>
-                        <p class="list-group-item-text">La flamante app utiliza una interfaz responsive que pe...</p>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <h4 class="list-group-item-heading">La turbulenta semana en la que Jhon Doe cancelo el aeropuerto de Comodoro</h4>
-                        <p class="list-group-item-text">La incertidumbre sobre el futuro de las inversiones en el pais domina las...</p>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <h4 class="list-group-item-heading">La cancelacion del aeropuerto compromete el presupuesto para el nuevo proyecto</h4>
-                        <p class="list-group-item-text">ProtoAirport podría verse perjudicado por la...</p>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <h4 class="list-group-item-heading">Los resultados de Aena suben un 5,5%, que gana 1.018,5 millones hasta septiembre</h4>
-                        <p class="list-group-item-text">El gesto aeroportuario nombra a Jhon Doe como nuevo...</p>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <h4 class="list-group-item-heading">Posible restructuracion de la app del aeropuerto motiva inversores</h4>
-                        <p class="list-group-item-text">La constante demanda de aplicaciones responsive hacen de...</p>
-                    </a>
-                </div>
+                <input id="companies" class="form-control autocomplete" placeholder="Número Vuelo..." />
+                <input class="form-control" data-date-format="dd/mm/yyyy" id="datepicker">
+                <input id="origin" class="form-control autocomplete" placeholder="Origen..." />
+                <input id="dest" class="form-control autocomplete" placeholder="Destino..." />
+
+
+                <button type="submit" class="btn btn-default">Detalle</button>
             </div>
 
             <div class="col-md-8">
@@ -74,12 +59,15 @@
     <script type="text/javascript " src="js/jquery-ui.min.js "></script>
     <script type="text/javascript " src="js/bootstrap.min.js "></script>
     <script type="text/javascript " src="js/underscore-min.js "></script>
+    <script type="text/javascript" src="js/b-datepicker.min.js"></script>
+
 
 </body>
 
 </html>
 
 <script type="text/javascript ">
+    $('#datepicker').datepicker("setDate", new Date());
     let url = "./includes/nav.html"
     $.ajax({
         crossOrigin: true,
