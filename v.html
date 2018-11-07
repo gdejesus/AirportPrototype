@@ -35,20 +35,97 @@
                 <input class="form-control" data-date-format="dd/mm/yyyy" id="datepicker">
                 <input id="origin" class="form-control autocomplete" placeholder="Origen..." />
                 <input id="dest" class="form-control autocomplete" placeholder="Destino..." />
-
-
                 <button type="submit" class="btn btn-default">Buscar</button>
             </div>
 
             <div class="col-md-8">
-                <div class="wrapper">
-                    <p class="text-justify">La flamante app utiliza una interfaz responsive que permite a los pasajeros interactuar con las distintas posibilidades del aeropuerto.</p>
-                    <p> Mientras que actualizará automáticamente los horarios de partida, cambios de las puertas de partida y hasta brindará buscadores de companias, vuelos y multimedia para generar un espacio de confort.</p>
-                    <p>La tecnología ha sido denominada como "ProtoAirport" y sabrá datos de el vuelo a tomar y hacia dónde se volará. En caso de indeseables, pero cada vez más inevitables demoras, la app mostrará los distintos sectores del aeropuerto para
-                        aprovechar el tiempo muerto, al sugerir los cafés o librerías más cercanos, o hotspots de Wi-Fi y lavabos.</p>
-                    <p>DJ/L, la compañía tecnológica detrás de su desarrollo asegura que la aplicación ofrece la experiencia más tecnológicamente avanzada dentro de un aeropuerto, mientras que representantes del aeropuerto aseguran que gracias a la innovación
-                        que ofrece ProtoAirport pretenden incrementar la satisfacción de los viajerons de forma drástica</p>
-                </div>
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>Nro Vuelo</th>
+                            <th>Estado</th>
+                            <th>Procedencia</th>
+                            <th>Destino</th>
+                            <th>Fecha</th>
+                            <th>Hora part.</th>
+                            <th>Hora Lleg.</th>
+                        </tr>
+                    </thead>
+                    <tbody id="flyTable">
+                        <tr>
+                            <td>1</td>
+                            <td>001</td>
+                            <td>A tiempo</td>
+                            <td>Cordoba</td>
+                            <td>Tierra del Fuego</td>
+                            <td>08/11/2018</td>
+                            <td>03:15</td>
+                            <td>07:45</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>002</td>
+                            <td>Retrasado</td>
+                            <td>Cordoba</td>
+                            <td>Comodoro Rivadavia</td>
+                            <td>08/11/2018</td>
+                            <td>03:15</td>
+                            <td>05:45</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>003</td>
+                            <td>A tiempo</td>
+                            <td>Comodoro Rivadavia</td>
+                            <td>Buenos aires</td>
+                            <td>08/11/2018</td>
+                            <td>03:15</td>
+                            <td>05:15</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>004</td>
+                            <td>A tiempo</td>
+                            <td>Comodoro Rivadavia</td>
+                            <td>Cordoba</td>
+                            <td>08/11/2018</td>
+                            <td>03:15</td>
+                            <td>07:15</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>005</td>
+                            <td>A tiempo</td>
+                            <td>Comodoro Rivadavia</td>
+                            <td>Cordoba</td>
+                            <td>07/11/2018</td>
+                            <td>03:15</td>
+                            <td>07:15</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>006</td>
+                            <td>A tiempo</td>
+                            <td>Cordoba</td>
+                            <td>Comodoro Rivadavia</td>
+                            <td>07/11/2018</td>
+                            <td>03:15</td>
+                            <td>05:45</td>
+                        </tr>
+
+                        <tr>
+                            <td>7</td>
+                            <td>007</td>
+                            <td>A tiempo</td>
+                            <td>Cordoba</td>
+                            <td>Tierra del Fuego</td>
+                            <td>06/11/2018</td>
+                            <td>03:15</td>
+                            <td>07:45</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
@@ -67,6 +144,29 @@
 </html>
 
 <script type="text/javascript ">
+    $(document).ready(function() {
+        $("#companies").on("keyup", function(e) {
+            if (e.which == 13) {
+                var value = $(this).val().toLowerCase();
+                $("#flyTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            }
+        });
+    });
+
+    $(":button ").click(function(e) {
+        let comp = $("#companies").val();
+        let date = $("#datepicker").val();
+        let origin = $("#origin").val();
+        let destino = $("#dest").val();
+        let filter = comp != null && comp != "" ? comp : date != null && date != "" ? date : origin != null && origin != "" ? origin : destino != null && destino != "" ? destino : null;
+        $("#flyTable tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(filter.toLowerCase()) > -1);
+        });
+
+    });
+
     $('#datepicker').datepicker("setDate", new Date());
     let url = "./includes/nav.html"
     $.ajax({
