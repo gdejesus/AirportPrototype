@@ -25,6 +25,14 @@ body {
     background-color: rgba(48, 113, 169, 0.9);
 }
 
+.wrapperGray {
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid white;
+    background-color: rgba(48, 113, 169, 0.5);
+}
+
 .wdefault {
     width: 100px;
 }
