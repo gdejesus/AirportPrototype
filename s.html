@@ -8,11 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>ProtoAirport</title>
-    <link rel="stylesheet" href="style/bootstrap.min.css" />
-    <link rel="stylesheet" href="style/bootstrap-theme.min.css" />
-    <link rel="stylesheet" href="style/jquery-ui.min.css" />
+    <link rel="stylesheet" href="./style/bootstrap.min.css" />
+    <link rel="stylesheet" href="./style/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="./style/jquery-ui.min.css" />
 
-    <link rel="stylesheet" href="style/custom.css" />
+    <link rel="stylesheet" href="./style/custom.css" />
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -58,60 +58,81 @@
                     </table>
                 </div>
                 <div class="col-md-8">
-                    <table class="table table-bordered table-striped">
-                        <thead>
-                            <tr>
-                                <th>Sector</th>
-                                <th>Ubicacion</th>
-                            </tr>
-                        </thead>
-                        <tbody id="sectorTable">
-                            <tr>
-                                <td>Mostrador 1</td>
-                                <td>Entrada derecha</td>
-                            </tr>
-                            <tr>
-                                <td>Mostrador 2</td>
-                                <td>Entrada izquierda</td>
-                            </tr>
-                            <tr>
-                                <td>Sector arribos</td>
-                                <td>Planta baja - fondo derecha</td>
-                            </tr>
-                            <tr>
-                                <td>Sector partidas</td>
-                                <td>1er piso - fondo derecha</td>
-                            </tr>
-                            <tr>
-                                <td>Comercio 1</td>
-                                <td>1er piso - entrada izquierda</td>
-                            </tr>
-                            <tr>
-                                <td>Comercio 2</td>
-                                <td>1er piso - entrada central</td>
-                            </tr>
-                            <tr>
-                                <td>Comercio 3</td>
-                                <td>1er piso - entrada izquierda</td>
-                            </tr>
-                            <tr>
-                                <td>Enfermeria</td>
-                                <td>Planta baja - entrada derecha</td>
-                            </tr>
-                            <tr>
-                                <td>Cajero 1</td>
-                                <td>Planta baja - acceso este</td>
-                            </tr>
-                            <tr>
-                                <td>Cajero 2</td>
-                                <td>Planta baja - acceso oeste</td>
-                            </tr>
-                            <tr>
-                                <td>Compañías</td>
-                                <td>American Airlines - LAN Airlines - Aerolineas Argentinas</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="col-md-4">
+                        <div id="companyInfo">
+                            <table class="table table-striped table-bordered ">
+                                <thead>
+                                    <tr>
+                                        <th>Compañía</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Aerolíneas Argentinas</td>
+                                    </tr>
+                                    <tr>
+                                        <td>LAN Airlines</td>
+                                        <tr>
+                                            <td>American Airlines</td>
+                                        </tr>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <table class="table table-striped table-bordered ">
+                            <thead>
+                                <tr>
+                                    <th>Sector</th>
+                                    <th>Ubicacion</th>
+                                </tr>
+                            </thead>
+                            <tbody id="sectorTable">
+                                <tr>
+                                    <td>Mostrador 1</td>
+                                    <td>Entrada derecha</td>
+                                </tr>
+                                <tr>
+                                    <td>Mostrador 2</td>
+                                    <td>Entrada izquierda</td>
+                                </tr>
+                                <tr>
+                                    <td>Sector arribos</td>
+                                    <td>Planta baja - fondo derecha</td>
+                                </tr>
+                                <tr>
+                                    <td>Sector partidas</td>
+                                    <td>1er piso - fondo derecha</td>
+                                </tr>
+                                <tr>
+                                    <td>Comercio 1</td>
+                                    <td>1er piso - entrada izquierda</td>
+                                </tr>
+                                <tr>
+                                    <td>Comercio 2</td>
+                                    <td>1er piso - entrada central</td>
+                                </tr>
+                                <tr>
+                                    <td>Comercio 3</td>
+                                    <td>1er piso - entrada izquierda</td>
+                                </tr>
+                                <tr>
+                                    <td>Enfermeria</td>
+                                    <td>Planta baja - entrada derecha</td>
+                                </tr>
+                                <tr>
+                                    <td>Cajero 1</td>
+                                    <td>Planta baja - acceso este</td>
+                                </tr>
+                                <tr>
+                                    <td>Cajero 2</td>
+                                    <td>Planta baja - acceso oeste</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 <div class="col-md-4">
                     <img src="./img/map/1.jpg" alt="Mapa" style="width:100%;">
