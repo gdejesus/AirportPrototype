@@ -35,7 +35,7 @@
                 <input class="form-control" data-date-format="dd/mm/yyyy" id="datepicker">
                 <input id="origin" class="form-control autocomplete" placeholder="Origen..." />
                 <input id="dest" class="form-control autocomplete" placeholder="Destino..." />
-                <button type="submit" class="btn btn-default">Buscar</button>
+                <button type="submit" id="searchFly" class="btn btn-default">Buscar</button>
             </div>
 
             <div class="col-md-8">
@@ -51,6 +51,7 @@
                                 <th>Fecha</th>
                                 <th>Hora part.</th>
                                 <th>Hora Lleg.</th>
+                                <th style="width:100px;">funciones</th>
                             </tr>
                         </thead>
                         <tbody id="flyTable">
@@ -63,6 +64,10 @@
                                 <td>08/11/2018</td>
                                 <td>03:15</td>
                                 <td>07:45</td>
+                                <td>
+                                    <button type="submit" id="company" class="btn btn-default" title="Compañía"><span class="glyphicon glyphicon-home"></button>
+                                    <button type="submit" id="plain" class="btn btn-default" title="Avión"><span class="glyphicon glyphicon-plane"></button>
+                                </td>
                             </tr>
                             <tr>
                                 <td>2</td>
@@ -73,6 +78,10 @@
                                 <td>08/11/2018</td>
                                 <td>03:15</td>
                                 <td>05:45</td>
+                                <td>
+                                    <button type="submit" id="company" class="btn btn-default" title="Compañía"><span class="glyphicon glyphicon-home"></button>
+                                    <button type="submit" id="plain" class="btn btn-default" title="Avión"><span class="glyphicon glyphicon-plane"></button>
+                                </td>
                             </tr>
                             <tr>
                                 <td>3</td>
@@ -83,6 +92,10 @@
                                 <td>08/11/2018</td>
                                 <td>03:15</td>
                                 <td>05:15</td>
+                                <td>
+                                    <button type="submit" id="company" class="btn btn-default" title="Compañía"><span class="glyphicon glyphicon-home"></button>
+                                    <button type="submit" id="plain" class="btn btn-default" title="Avión"><span class="glyphicon glyphicon-plane"></button>
+                                </td>
                             </tr>
                             <tr>
                                 <td>4</td>
@@ -93,6 +106,10 @@
                                 <td>08/11/2018</td>
                                 <td>03:15</td>
                                 <td>07:15</td>
+                                <td>
+                                    <button type="submit" id="company" class="btn btn-default" title="Compañía"><span class="glyphicon glyphicon-home"></button>
+                                    <button type="submit" id="plain" class="btn btn-default" title="Avión"><span class="glyphicon glyphicon-plane"></button>
+                                </td>
                             </tr>
                             <tr>
                                 <td>5</td>
@@ -103,6 +120,10 @@
                                 <td>07/11/2018</td>
                                 <td>03:15</td>
                                 <td>07:15</td>
+                                <td>
+                                    <button type="submit" id="company" class="btn btn-default" title="Compañía"><span class="glyphicon glyphicon-home"></button>
+                                    <button type="submit" id="plain" class="btn btn-default" title="Avión"><span class="glyphicon glyphicon-plane"></button>
+                                </td>
                             </tr>
                             <tr>
                                 <td>6</td>
@@ -113,6 +134,10 @@
                                 <td>07/11/2018</td>
                                 <td>03:15</td>
                                 <td>05:45</td>
+                                <td>
+                                    <button type="submit" id="company" class="btn btn-default" title="Compañía"><span class="glyphicon glyphicon-home"></button>
+                                    <button type="submit" id="plain" class="btn btn-default" title="Avión"><span class="glyphicon glyphicon-plane"></button>
+                                </td>
                             </tr>
 
                             <tr>
@@ -124,6 +149,10 @@
                                 <td>06/11/2018</td>
                                 <td>03:15</td>
                                 <td>07:45</td>
+                                <td>
+                                    <button type="submit" id="company" class="btn btn-default" title="Compañía"><span class="glyphicon glyphicon-home"></button>
+                                    <button type="submit" id="plain" class="btn btn-default" title="Avión"><span class="glyphicon glyphicon-plane"></button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -157,7 +186,7 @@
         });
     });
 
-    $(":button ").click(function(e) {
+    $("#searchFly").click(function(e) {
         let comp = $("#companies").val();
         let date = $("#datepicker").val();
         let origin = $("#origin").val();
