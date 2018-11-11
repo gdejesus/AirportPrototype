@@ -57,16 +57,12 @@ h1 {
     max-width: 400px;
 }
 
-#company,
-#plain {
+#companyIcon,
+#detailIcon,
+#plainIcon {
     display: inline-flex;
 }
 
-#plain {
+#plainIcon {
     float: right;
-}
-
-.hidden {
-    display: none;
-    visibility: hidden;
 }
