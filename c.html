@@ -33,7 +33,7 @@
         <div class="row">
             <div class="col-md-4">
                 <input id="companies" class="form-control autocomplete" placeholder="Compania..." />
-                <button type="submit" class="btn btn-primary" title="Detalle"><span class="glyphicon glyphicon-search"></span></button>
+                <button type="submit" id="searchCompany" class="btn btn-primary" title="Detalle"><span class="glyphicon glyphicon-search"></span></button>
             </div>
 
             <div class="col-md-8">
@@ -64,7 +64,14 @@
                                 </tr>
                                 <tr>
                                     <th>Aviones</th>
-                                    <td id="plainCompany"></td>
+                                    <td id="planeCompany"></td>
+                                </tr>
+
+                                <tr id="opt" style="visible: hidden">
+                                    <th>Opciones</th>
+                                    <td id="dayFly">
+                                        <button type="submit" id="fly" class="btn btn-primary" title="Vuelos del día"><span class="glyphicon glyphicon-send"></button>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -94,6 +101,31 @@
             $("#navContainer").html(data);
         }
     });
+
+    function parse_query_string(query) {
+        var vars = query.split("&");
+        var query_string = {};
+        for (var i = 0; i < vars.length; i++) {
+            var pair = vars[i].split("=");
+            var key = decodeURIComponent(pair[0]);
+            var value = decodeURIComponent(pair[1]);
+            // If first entry with this name
+            if (typeof query_string[key] === "undefined") {
+                query_string[key] = decodeURIComponent(value);
+                // If second entry with this name
+            } else if (typeof query_string[key] === "string") {
+                var arr = [query_string[key], decodeURIComponent(value)];
+                query_string[key] = arr;
+                // If third or later entry with this name
+            } else {
+                query_string[key].push(decodeURIComponent(value));
+            }
+        }
+        return query_string;
+    }
+
+    var query = window.location.search.substring(1);
+
     //Companies list
     let aviones = [{
         idAvion: 1,
@@ -183,24 +215,39 @@
     $(".autocomplete").autocomplete({
         source: companyName
     });
-    $(":button ").click(function(e) {
-        $("#plainCompany").text("");
+    $("#searchCompany").click(function(e) {
+        searchComp(availableCompanies)
+    });
+
+    function searchComp(availableCompanies) {
+        $("#planeCompany").text("");
         let companieSelected = $("#companies").val();
         let element = _.findWhere(availableCompanies, {
             name: companieSelected
         });
+        $("#opt").toggle();
         $("#idCompany").text(element.id);
         $("#nameCompany").text(element.name);
         $("#countryCompany").text(element.pais);
         $("#phoneCompany").text(element.telefono);
         $("#webCompany").text(element.web);
-        let plainData = "";
+        let planeData = "";
         _.each(element.aviones, function(avion) {
-            plainData += "Avion: " + avion.idAvion;
-            plainData += " Modelo: " + avion.modelo;
-            plainData += " || ";
+            planeData += "Avion: " + avion.idAvion;
+            planeData += " Modelo: " + avion.modelo;
+            planeData += " || ";
         });
-        $("#plainCompany").append(plainData.substring(0, plainData.length - 3));
+        $("#planeCompany").append(planeData.substring(0, planeData.length - 3));
 
+    }
+
+    $("#fly").click(function() {
+        location.href = "./v.html";
     });
+
+    var qs = parse_query_string(query);
+    if (qs != null) {
+        $("#companies").val(qs.c);
+        searchComp(availableCompanies);
+    }
 </script>

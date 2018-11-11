@@ -57,12 +57,31 @@ h1 {
     max-width: 400px;
 }
 
-#companyIcon,
+#companyIcon1,
+#companyIcon2,
+#companyIcon3,
+#companyIcon4,
+#companyIcon5,
+#companyIcon6,
+#companyIcon7,
+#planeIcon1,
+#planeIcon2,
+#planeIcon3,
+#planeIcon4,
+#planeIcon5,
+#planeIcon6,
+#planeIcon7,
 #detailIcon,
-#plainIcon {
+{
     display: inline-flex;
 }
 
-#plainIcon {
+#planeIcon1,
+#planeIcon2,
+#planeIcon3,
+#planeIcon4,
+#planeIcon5,
+#planeIcon6,
+#planeIcon7 {
     float: right;
 }

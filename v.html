@@ -35,7 +35,7 @@
                 <input class="form-control" data-date-format="dd/mm/yyyy" id="datepicker">
                 <input id="origin" class="form-control autocomplete" placeholder="Origen..." />
                 <input id="dest" class="form-control autocomplete" placeholder="Destino..." />
-                <button type="submit" id="searchFly" class="btn btn-default">Buscar</button>
+                <button type="submit" id="searchFly" class="btn btn-primary" title="Buscar"><span class="glyphicon glyphicon-search"></span></button>
             </div>
 
             <div class="col-md-8">
@@ -65,8 +65,8 @@
                                 <td>03:15</td>
                                 <td>07:45</td>
                                 <td>
-                                    <button type="submit" id="companyIcon" class="btn btn-primary" title="Compañía"><span class="glyphicon glyphicon-home"></button>
-                                    <button type="submit" id="plainIcon" class="btn btn-primary" title="Avión"><span class="glyphicon glyphicon-plane"></button>
+                                    <button type="submit" id="companyIcon1" class="btn btn-primary" title="Compañía"><span class="glyphicon glyphicon-home"></button>
+                                    <button type="submit" id="planeIcon1" data-toggle="modal" data-target="#detailModal" class="btn btn-primary" title="Avión"><span class="glyphicon glyphicon-plane"></button>
                                 </td>
                             </tr>
                             <tr>
@@ -79,8 +79,8 @@
                                 <td>03:15</td>
                                 <td>05:45</td>
                                 <td>
-                                    <button type="submit" id="companyIcon" class="btn btn-primary" title="Compañía"><span class="glyphicon glyphicon-home"></button>
-                                    <button type="submit" id="plainIcon" class="btn btn-primary" title="Avión"><span class="glyphicon glyphicon-plane"></button>
+                                    <button type="submit" id="companyIcon2" class="btn btn-primary" title="Compañía"><span class="glyphicon glyphicon-home"></button>
+                                    <button type="submit" id="planeIcon2" data-toggle="modal" data-target="#detailModal" class="btn btn-primary" title="Avión"><span class="glyphicon glyphicon-plane"></button>
                                 </td>
                             </tr>
                             <tr>
@@ -93,8 +93,8 @@
                                 <td>03:15</td>
                                 <td>05:15</td>
                                 <td>
-                                    <button type="submit" id="companyIcon" class="btn btn-primary" title="Compañía"><span class="glyphicon glyphicon-home"></button>
-                                    <button type="submit" id="plainIcon" class="btn btn-primary" title="Avión"><span class="glyphicon glyphicon-plane"></button>
+                                    <button type="submit" id="companyIcon3" class="btn btn-primary" title="Compañía"><span class="glyphicon glyphicon-home"></button>
+                                    <button type="submit" id="planeIcon3" data-toggle="modal" data-target="#detailModal" class="btn btn-primary" title="Avión"><span class="glyphicon glyphicon-plane"></button>
                                 </td>
                             </tr>
                             <tr>
@@ -107,8 +107,8 @@
                                 <td>03:15</td>
                                 <td>07:15</td>
                                 <td>
-                                    <button type="submit" id="companyIcon" class="btn btn-primary" title="Compañía"><span class="glyphicon glyphicon-home"></button>
-                                    <button type="submit" id="plainIcon" class="btn btn-primary" title="Avión"><span class="glyphicon glyphicon-plane"></button>
+                                    <button type="submit" id="companyIcon4" class="btn btn-primary" title="Compañía"><span class="glyphicon glyphicon-home"></button>
+                                    <button type="submit" id="planeIcon4" data-toggle="modal" data-target="#detailModal" class="btn btn-primary" title="Avión"><span class="glyphicon glyphicon-plane"></button>
                                 </td>
                             </tr>
                             <tr>
@@ -121,8 +121,8 @@
                                 <td>03:15</td>
                                 <td>07:15</td>
                                 <td>
-                                    <button type="submit" id="companyIcon" class="btn btn-primary" title="Compañía"><span class="glyphicon glyphicon-home"></button>
-                                    <button type="submit" id="plainIcon" class="btn btn-primary" title="Avión"><span class="glyphicon glyphicon-plane"></button>
+                                    <button type="submit" id="companyIcon5" class="btn btn-primary" title="Compañía"><span class="glyphicon glyphicon-home"></button>
+                                    <button type="submit" id="planeIcon5" data-toggle="modal" data-target="#detailModal" class="btn btn-primary" title="Avión"><span class="glyphicon glyphicon-plane"></button>
                                 </td>
                             </tr>
                             <tr>
@@ -135,8 +135,8 @@
                                 <td>03:15</td>
                                 <td>05:45</td>
                                 <td>
-                                    <button type="submit" id="companyIcon" class="btn btn-primary" title="Compañía"><span class="glyphicon glyphicon-home"></button>
-                                    <button type="submit" id="plainIcon" class="btn btn-primary" title="Avión"><span class="glyphicon glyphicon-plane"></button>
+                                    <button type="submit" id="companyIcon6" class="btn btn-primary" title="Compañía"><span class="glyphicon glyphicon-home"></button>
+                                    <button type="submit" id="planeIcon6" data-toggle="modal" data-target="#detailModal" class="btn btn-primary" title="Avión"><span class="glyphicon glyphicon-plane"></button>
                                 </td>
                             </tr>
 
@@ -150,12 +150,84 @@
                                 <td>03:15</td>
                                 <td>07:45</td>
                                 <td>
-                                    <button type="submit" id="companyIcon" class="btn btn-primary" title="Compañía"><span class="glyphicon glyphicon-home"></button>
-                                    <button type="submit" id="plainIcon" class="btn btn-primary" title="Avión"><span class="glyphicon glyphicon-plane"></button>
+                                    <button type="submit" id="companyIcon7" class="btn btn-primary" title="Compañía"><span class="glyphicon glyphicon-home"></button>
+                                    <button type="submit" id="planeIcon7" data-toggle="modal" data-target="#detailModal" class="btn btn-primary" title="Avión"><span class="glyphicon glyphicon-plane"></button>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Avion</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Avión</th>
+                                <th>Matricula</th>
+                                <th>Empresa</th>
+                                <th>Descripción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>08/11/2018</td>
+                                <td>Avión 1</td>
+                                <td>AA-1111-AA</td>
+                                <td>American Airlines</td>
+                                <td>ProtoAirport visor de multimedia</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                        </ol>
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img src="./img/planes/3.jpg" alt="Avion3" style="width:100%;">
+                            </div>
+
+                            <div class="item">
+                                <img src="./img/planes/1.jpg" alt="Avion1" style="width:100%;">
+                            </div>
+
+                            <div class="item">
+                                <img src="./img/planes/2.jpg" alt="Avion2" style="width:100%;">
+                            </div>
+                        </div>
+
+                        <!-- Left and right controls -->
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                            <span class="sr-only">previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                            <span class="sr-only">next</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>
@@ -206,5 +278,14 @@
         success: function(data) {
             $("#navContainer").html(data);
         }
+    });
+
+    $("#companyIcon1,#companyIcon2,#companyIcon3,#companyIcon4,#companyIcon5,#companyIcon6,#companyIcon7").click(function() {
+        var comp = ["Emirates", "United Airlines", "American Airline", "LAN Airlines", "Aerolineas Argentinas", "Alpine Air Express"];
+
+        function getCompany() {
+            return comp[Math.floor(Math.random() * comp.length)];
+        }
+        location.href = "./c.html?c=" + getCompany();
     });
 </script>
