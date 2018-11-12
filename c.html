@@ -62,15 +62,12 @@
                                     <th>Web</th>
                                     <td id="webCompany"></td>
                                 </tr>
-                                <tr>
-                                    <th>Aviones</th>
-                                    <td id="planeCompany"></td>
-                                </tr>
 
-                                <tr id="opt" style="visible: hidden">
+                                <tr id="opt">
                                     <th>Opciones</th>
                                     <td id="dayFly">
                                         <button type="submit" id="fly" class="btn btn-primary" title="Vuelos del día"><span class="glyphicon glyphicon-send"></button>
+                                        <button type="submit" id="plane" data-toggle="modal" data-target="#detailModal" class="btn btn-primary" title="Aviones"><span class="glyphicon glyphicon-plane"></button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -81,12 +78,47 @@
         </div>
     </div>
 
-    <!-- /.container -->
 
-    <script type="text/javascript " src="js/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript " src="js/jquery-ui.min.js "></script>
-    <script type="text/javascript " src="js/bootstrap.min.js "></script>
-    <script type="text/javascript " src="js/underscore-min.js "></script>
+
+    <div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Aviones</h5>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Avión</th>
+                                <th>Patente</th>
+                                <th>Fabricante</th>
+                                <th>Capacidad</th>
+                                <th>Fecha fabricación</th>
+                                <th>Fecha servicio</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bodyTable">
+
+                        </tbody>
+                    </table>
+
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- /.container -->
+
+        <script type="text/javascript " src="js/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript " src="js/jquery-ui.min.js "></script>
+        <script type="text/javascript " src="js/bootstrap.min.js "></script>
+        <script type="text/javascript " src="js/underscore-min.js "></script>
 
 </body>
 
@@ -127,23 +159,38 @@
     var query = window.location.search.substring(1);
 
     //Companies list
-    let aviones = [{
+    var aviones = [{
         idAvion: 1,
         patente: 12341,
-        fabricante: "emi",
+        fabricante: "boing",
         capacidad: 100,
         modelo: "Avion1",
         fechaFabricacion: "25 de marzo de 1985",
         fechaEntradaServicio: "26 de marzo de 1985"
     }, {
         idAvion: 2,
-        patente: 12341,
-        fabricante: "emi",
-        capacidad: 100,
+        patente: 12541,
+        fabricante: "boing",
+        capacidad: 120,
         modelo: "Avion2",
-        fechaFabricacion: "25 de marzo de 1985",
-        fechaEntradaServicio: "26 de marzo de 1985"
+        fechaFabricacion: "23 de enero de 1983",
+        fechaEntradaServicio: "12 de diciemre de 1984"
     }];
+
+    $("#plane").click(function() {
+        _.each(aviones, function(a) {
+            let row = "<tr>";
+            row += "<td>" + a.idAvion + "</td>";
+            row += "<td>" + a.patente + "</td>";
+            row += "<td>" + a.fabricante + "</td>";
+            row += "<td>" + a.capacidad + "</td>";
+            row += "<td>" + a.modelo + "</td>";
+            row += "<td>" + a.fechaFabricacion + "</td>";
+            row += "<td>" + a.fechaEntradaServicio + "</td>";
+            row += "</tr>";
+            $("#bodyTable").append(row);
+        })
+    });
     const availableCompanies = [{
         id: 1,
         name: "Emirates",
@@ -225,7 +272,10 @@
         let element = _.findWhere(availableCompanies, {
             name: companieSelected
         });
-        $("#opt").toggle();
+        if (element == null) {
+            return;
+        }
+        $("#opt").css('visibility', 'visible');
         $("#idCompany").text(element.id);
         $("#nameCompany").text(element.name);
         $("#countryCompany").text(element.pais);
@@ -245,9 +295,13 @@
         location.href = "./v.html";
     });
 
-    var qs = parse_query_string(query);
-    if (qs != null) {
-        $("#companies").val(qs.c);
-        searchComp(availableCompanies);
-    }
+    $(document).ready(function() {
+        var qs = parse_query_string(query);
+        $("#opt").css('visibility', 'hidden');
+
+        if (qs != null) {
+            $("#companies").val(qs.c);
+            searchComp(availableCompanies);
+        }
+    });
 </script>
