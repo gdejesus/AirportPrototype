@@ -1,7 +1,7 @@
 body {
-    text-aling: center;
+    text-align: center;
     background-image: url('../img/bg2.jpg');
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-size: cover;
     height: 100vh;
 }
@@ -44,7 +44,7 @@ body {
 h1 {
     background-color: rgba(0, 0, 0, 0.6);
     padding: 5px;
-    text-aling: center;
+    text-align: center;
     color: white;
     margin: auto;
     margin-bottom: 10px;
@@ -84,4 +84,15 @@ h1 {
 #planeIcon6,
 #planeIcon7 {
     float: right;
+}
+
+.card {
+    width: 100%;
+    text-align: center;
+}
+
+.card-img-top {
+    height: 180px;
+    width: 18rem;
+    display: block;
 }
